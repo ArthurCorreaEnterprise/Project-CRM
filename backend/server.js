@@ -2,11 +2,18 @@ const express = require('express');
 const dotenv = require('dotenv');
 const { Sequelize } = require('sequelize');
 
+const userRoutes = require('./src/routes/userRoutes');
+
 // Carregar variáveis de ambiente do arquivo .env
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
+
+app.use(express.json());
+
+// Rotas de usuário
+app.use('/api', userRoutes);
 
 // Configurando o Sequelize
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
