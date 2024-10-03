@@ -1,0 +1,12 @@
+# PORTA DO SERVIDOR
+PORT=4000
+# Banco de Dados
+DB_NAME=projectcrm
+DB_USER=postgres
+DB_PASS=@Arthur22042002
+DB_HOST=127.0.0.1
+
+JWT_SECRET=sua_chave_secreta
+
+EMAIL_USER=arthurcorreaenterprise@gmail.com
+EMAIL_PASS=ildcr ppim hnpg ycdo
