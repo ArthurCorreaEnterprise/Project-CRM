@@ -15,11 +15,22 @@ const authenticateUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const { token, user } = await userService.authenticateUser(email, password);
-    res.status(200).json({ token, user });
+
+    // Definindo o token JWT no cookie
+    res.cookie('authToken', token, {
+      httpOnly: true, // Garantir que o cookie não pode ser acessado via JavaScript (segurança)
+      secure: process.env.NODE_ENV === 'production', // Usar 'secure' apenas em produção
+      maxAge: 3600000, // Cookie expira em 1 hora
+      sameSite: 'strict', // Reforçar que o cookie só é enviado no mesmo site
+    });
+
+    // Retornar o usuário no corpo da resposta
+    res.status(200).json({token, user });
   } catch (error) {
     res.status(401).json({ error: error.message });
   }
 };
+
 
 const getUsers = async (req, res) => {
   try {
