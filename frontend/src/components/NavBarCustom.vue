@@ -4,15 +4,38 @@
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/about">About</router-link></li>
         </ul>
-        <ul class="auth-buttons">
-            <li><router-link to="/signin">Sign In</router-link></li>
-            <li><router-link to="/signup">Sign Up</router-link></li>
+        <ul v-if="isAuthenticated" class="auth-buttons">
+            <li>
+                <button @click="logout">Logout</button>
+            </li>
+        </ul>
+        <ul v-else class="auth-buttons">
+            <li>
+                <RouterLink to="/signin">Sign In</RouterLink>
+            </li>
+            <li>
+                <RouterLink to="/signup">Sign Up</RouterLink>
+            </li>
         </ul>
     </nav>
 </template>
 
 <script setup>
-// Script setup não requer lógica específica aqui
+import { useStore } from 'vuex';
+import { computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+const store = useStore();
+const router = useRouter();
+
+// Computed property para verificar se o usuário está autenticado
+const isAuthenticated = computed(() => store.getters.isAuthenticated);
+
+// Função para fazer logout
+const logout = () => {
+    store.dispatch('logout');
+    router.push('/signin');
+};
 </script>
 
 <style scoped>
