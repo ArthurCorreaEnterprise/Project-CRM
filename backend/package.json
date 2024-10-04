@@ -19,6 +19,7 @@
     "nodemailer": "^6.9.15",
     "pg": "^8.13.0",
     "pg-hstore": "^2.3.4",
+    "pgtools": "^1.0.1",
     "sequelize": "^6.37.3",
     "sequelize-cli": "^6.6.2"
   }
