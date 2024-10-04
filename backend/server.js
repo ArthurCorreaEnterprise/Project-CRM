@@ -4,8 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const { Sequelize } = require("sequelize");
 const pgtools = require("pgtools"); // Importar pgtools
-
-const userRoutes = require("./src/routes/userRoutes");
+const routes = require("./src/routes");
 
 // Carregar variáveis de ambiente do arquivo .env
 dotenv.config();
@@ -83,8 +82,8 @@ createDatabaseIfNotExists().then(() => {
 // Middleware para interpretar JSON
 app.use(express.json());
 
-// Rotas de usuário
-app.use("/api", userRoutes);
+// Usando o índice de rotas
+app.use("/api", routes);
 
 // Rota simples de teste
 app.get("/", (req, res) => {
