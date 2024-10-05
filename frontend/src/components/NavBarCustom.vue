@@ -1,8 +1,15 @@
 <template>
     <nav>
         <ul class="nav-list">
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/about">About</router-link></li>
+            <li>
+                <RouterLink to="/">Home</RouterLink>
+            </li>
+            <li>
+                <RouterLink to="/about">About</RouterLink>
+            </li>
+            <li>
+                <RouterLink to="/company">Company</RouterLink>
+            </li>
         </ul>
         <ul v-if="isAuthenticated" class="auth-buttons">
             <li>

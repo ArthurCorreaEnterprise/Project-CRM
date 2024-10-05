@@ -38,6 +38,8 @@ module.exports = (sequelize, DataTypes) => {
       },
       cnpj: {
         type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
       },
       tipo: {
         type: DataTypes.STRING,

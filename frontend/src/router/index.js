@@ -3,6 +3,7 @@ import Home from '../views/HomeView.vue';
 import About from '../views/AboutView.vue';
 import SignIn from '../views/SignInView.vue';
 import SignUp from '../views/SignUpView.vue';
+import Company from '../views/CompanyView.vue';
 
 const routes = [
   {
@@ -15,6 +16,12 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About,
+    meta: { layout: 'default' }, // layout padrão
+  },
+  {
+    path: '/company',
+    name: 'Company',
+    component: Company,
     meta: { layout: 'default' }, // layout padrão
   },
   {
