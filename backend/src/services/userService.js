@@ -25,7 +25,19 @@ const checkIfEmailExists = async (email) => {
 };
 
 const createUser = async (userData) => {
-  const { name, email, password } = userData;
+  const {
+    name,
+    email,
+    password,
+    cpf,
+    phone,
+    state,
+    city,
+    neighborhood,
+    street,
+    streetNumber,
+    zipcode,
+  } = userData;
 
   validateEmail(email);
   await checkIfEmailExists(email);
@@ -38,11 +50,23 @@ const createUser = async (userData) => {
   try {
     // Enviar o e-mail de confirmação
     await emailService.sendConfirmationEmail(email, confirmationLink);
-    
-    // Registrar o usuário
-    const user = await User.create({ name, email, password: hashedPassword });
-    return user;
 
+    // Registrar o usuário com os novos campos
+    const user = await User.create({
+      name,
+      email,
+      password: hashedPassword,
+      cpf,
+      phone,
+      state,
+      city,
+      neighborhood,
+      street,
+      streetNumber,
+      zipcode,
+    });
+
+    return user;
   } catch (error) {
     throw new Error('Erro ao enviar e-mail de confirmação: ' + error.message);
   }

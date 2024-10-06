@@ -2,8 +2,34 @@ const userService = require('../services/userService');
 
 const createUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-    const user = await userService.createUser({ name, email, password });
+    const {
+      name,
+      email,
+      password,
+      cpf,
+      phone,
+      state,
+      city,
+      neighborhood,
+      street,
+      streetNumber,
+      zipcode,
+    } = req.body;
+
+    const user = await userService.createUser({
+      name,
+      email,
+      password,
+      cpf,
+      phone,
+      state,
+      city,
+      neighborhood,
+      street,
+      streetNumber,
+      zipcode,
+    });
+
     res.status(201).json(user);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -24,12 +50,11 @@ const authenticateUser = async (req, res) => {
     });
 
     // Retornar o usuário no corpo da resposta
-    res.status(200).json({token, user });
+    res.status(200).json({ token, user });
   } catch (error) {
     res.status(401).json({ error: error.message });
   }
 };
-
 
 const getUsers = async (req, res) => {
   try {

@@ -18,6 +18,7 @@
     "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2",
     "nodemailer": "^6.9.15",
+    "pagarme": "^4.35.2",
     "pg": "^8.13.0",
     "pg-hstore": "^2.3.4",
     "pgtools": "^1.0.1",

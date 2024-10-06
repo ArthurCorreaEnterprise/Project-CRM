@@ -20,6 +20,38 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      cpf: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      phone: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      state: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      city: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      neighborhood: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      street: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      streetNumber: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      zipcode: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     {
       sequelize,
