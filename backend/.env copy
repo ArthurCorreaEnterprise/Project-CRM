@@ -8,5 +8,10 @@ DB_HOST=127.0.0.1
 
 JWT_SECRET=sua_chave_secreta
 
+# E-mail
 EMAIL_USER=arthurcorreaenterprise@gmail.com
 EMAIL_PASS=ildcr ppim hnpg ycdo
+
+# Chaves da API Pagar.me
+PAGARME_PUBLIC_KEY=pk_test_PrjqPx9f3Kc1aqWp
+PAGARME_SECRET_KEY=sk_test_685kpaipMSnpVwqo
